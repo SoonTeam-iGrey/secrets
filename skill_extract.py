@@ -30,3 +30,25 @@ annotations = skill_extractor.annotate(description)
 #INSTALL
 ######### pip install skillNer
 ######### python -m spacy download en_core_web_lg
+data = annotations
+
+# Extract unique values from full_matches and ngram_scored
+doc_node_values = set()
+
+for match in data['results']['full_matches']:
+    doc_node_values.add(match['doc_node_value'])
+
+for scored in data['results']['ngram_scored']:
+    doc_node_values.add(scored['doc_node_value'])
+
+# Additional processing to standardize skill names and remove duplicates
+standardized_values = set()
+for value in doc_node_values:
+    standardized_value = value.lower().replace(' ', '')
+    standardized_values.add(standardized_value)
+
+# Convert the set to a list if needed
+unique_values_list = list(standardized_values)
+
+# Print the result
+print(unique_values_list)
