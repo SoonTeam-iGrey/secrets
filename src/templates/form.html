@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1> Employee Assessment Form </h1>
+
+    <form method="post" action="/">
+        <label for="name">name:</label>
+        <input type="text" id="name" name="name">
+
+        <div id="studiesContainer" class="dynamic-container">
+            <h2>Studies</h2>
+            <button type="button" onclick="addStudyEntry('studiesContainer')">Add Study</button>
+
+            <div class="entry">
+                <label for="degree1"> Degree </label>
+                <select id="degree1">
+                    <option> bachelors </option>
+                    <option> masters </option>
+                    <option> PhD </option>
+                </select>
+                <label for="university">University:</label>
+                <input type="text" id="university1">
+            </div>
+        </div>
+
+        <div id="jobsContainer" class="dynamic-container">
+            <h2>Experience</h2>
+            <button type="button" onclick="addJobEntry('studiesContainer')">Add Job</button>
+            <div class="entry">
+                <label for="company">Company:</label>
+                <input type="text" id="company1">
+
+                <label for="branches">Branch:</label>
+                <select id="branches1">
+                    <option value="backend"> backend </option>
+                    <option value="frontent"> frontend </option>
+                    <option value="mobile developer"> mobile developer </option>
+                    <option value="game developer"> game developer </option>
+                    <option value="data science"> data science </option>
+                    <option value="AI"> AI </option>
+                    <option value="quality assurance"> quality assurance </option>
+                    <option value="devops"> devops </option>
+                    <option value="cybersecurity"> cybersecurity </option>
+                    <option value="database administrator"> database administrator</option>
+                    <option value="networking"> networking </option>
+                    <option value="embedded"> embedded </option>
+                </select>
+                <br>
+                <label for="fromDate1">Date of Employment:</label>
+                <input type="date" id="fromDate1" >
+                <label for="toDate1">Date of Resignation:</label>
+                <input type="date" id="toDate1">
+                <br>
+            </div>
+        </div>
+
+        <div id="skillContainer" class="dynamic-container">
+            <h2>Skills</h2>
+            <button type="button" onclick="addSkillEntry('skillContainer')">Add Skill</button>
+            <div class="entry">
+                <label for="skill">Skill:</label>
+                <input type="text" id="skill1">
+            </div>
+
+        </div>
+
+        <div id="courseContainer" class="dynamic-container">
+            <h2>Courses</h2>
+            <button type="button" onclick="addCourseEntry('courseContainer')">Add Course</button>
+            <div class="entry">
+                <label for="course">Course:</label>
+                <input type="text" id="course1">
+            </div>
+
+        </div>
+
+        <button type="button" onclick="convertToJson()"> debugging submit </button>
+        <input type="submit" value="Submit">
+    </form>
+    <script src="{{url_for('static', filename='js/form.js')}}"></script>
+</body>
+</html>
